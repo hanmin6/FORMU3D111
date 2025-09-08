@@ -1,0 +1,17 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "services": [
+    {
+      "name": "formu-backend",
+      "build": {
+        "builder": "NIXPACKS",
+        "buildCommand": "cd backend && pip install -r requirements.txt"
+      },
+      "deploy": {
+        "startCommand": "cd backend && python -m app.run",
+        "restartPolicyType": "ON_FAILURE",
+        "healthcheckPath": "/api/health"
+      }
+    }
+  ]
+}
